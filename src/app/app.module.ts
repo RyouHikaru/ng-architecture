@@ -7,6 +7,7 @@ import { TodosComponent } from './todos/todos.component';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './shared/material.module';
+import { NgSharedModule } from 'ng-shared';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MaterialModule } from './shared/material.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgSharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
