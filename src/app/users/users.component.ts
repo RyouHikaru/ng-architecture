@@ -1,24 +1,19 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent {
-  users = [
-    {
-      id: 1,
-      name: "John Smith",
-      username: "johnsmith",
-      email: "johnsmith@yahoo.com"
-    },
-    {
-      id: 2,
-      name: "Hailey Luijia",
-      username: "haileyluijia",
-      email: "haileyluijia@yahoo.com"
-    },
-  ];
+  users: any;
 
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getUsers().subscribe((data) => {
+      this.users = data;
+    });
+  }
 }
