@@ -8,11 +8,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './shared/material.module';
 import { NgSharedModule } from 'ng-shared';
+import { StoreModule } from '@ngrx/store';
+import { MyCounterComponent } from './my-counter/my-counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    MyCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { NgSharedModule } from 'ng-shared';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgSharedModule
+    NgSharedModule,
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
