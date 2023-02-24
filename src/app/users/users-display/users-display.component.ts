@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class UsersDisplayComponent {
   @Input() users: any;
+
+  // convertToUpperCase(val: String) {
+  //   return val.toUpperCase();
+  // }
+  // Note: This is not recommended. Instead, use Pipes.
 }
