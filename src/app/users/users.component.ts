@@ -13,7 +13,7 @@ export class UsersComponent {
 
   ngOnInit() {
     this.dataService.getUsers().subscribe((data) => {
-      this.users = data;
+      this.users = data.users;
     });
   }
 }
