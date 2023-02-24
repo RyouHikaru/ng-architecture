@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { NgSharedModule } from 'ng-shared';
 import { StoreModule } from '@ngrx/store';
 import { MyCounterComponent } from './my-counter/my-counter.component';
 import { counterReducer } from './counter.reducer';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent, TodosComponent, MyCounterComponent],
@@ -22,6 +23,12 @@ import { counterReducer } from './counter.reducer';
     MaterialModule,
     NgSharedModule,
     StoreModule.forRoot({ count: counterReducer }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
