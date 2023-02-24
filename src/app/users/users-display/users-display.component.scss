@@ -1,0 +1,11 @@
+.users {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 20px;
+  .user {
+    width: 100%;
+    background-color: antiquewhite;
+  }
+}
